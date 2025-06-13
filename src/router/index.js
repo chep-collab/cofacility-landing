@@ -9,7 +9,22 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      // Use setTimeout to ensure DOM is rendered
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const el = document.querySelector(to.hash)
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' })
+          }
+          resolve({ el: to.hash })
+        }, 300)
+      })
+    }
+    return { top: 0 }
+  }
 })
 
 export default router

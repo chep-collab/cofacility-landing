@@ -4,8 +4,8 @@
       Facility Hub
     </div>
     <div class="nav-links">
-      <a href="#about">About Us</a>
-      <a href="#features">Features</a>
+      <a href="#about" @click.prevent="scrollToSection('about')">About Us</a>
+      <a href="#features" @click.prevent="scrollToSection('features')">Features</a>
       <a
         href="https://wa.me/yourwhatsappphonenumber"
         target="_blank"
@@ -20,7 +20,24 @@
 </template>
 
 <script setup>
-// No script needed
+import { useRouter, useRoute } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
+
+function scrollToSection(sectionId) {
+  if (route.path !== '/') {
+    router.push('/').then(() => {
+      setTimeout(() => {
+        const el = document.getElementById(sectionId)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }, 300)
+    })
+  } else {
+    const el = document.getElementById(sectionId)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <style>
