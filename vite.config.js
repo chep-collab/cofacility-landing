@@ -9,6 +9,11 @@ export default defineConfig({
     vue(),
     tailwindcss(),
   ],
+  server: {
+    hmr: {
+      path: '/hmr', // Ensures correct WebSocket routing with custom base
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
