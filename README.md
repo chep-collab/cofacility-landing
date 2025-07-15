@@ -93,10 +93,9 @@ npm run build
 
 
 📸 Screenshots
-Add screenshots of the hero section, mobile layout, and any interactive elements here.
-![Hero Section](./public/screenshots/hero.png)
-![Mobile View](./public/screenshots/mobile.png)
-
+![Homepage](./public/screenshots/homepage.png)
+![Services](./public/screenshots/services.png)
+![Mobile View](./public/screenshots/formpage.png)
 
 
 📌 Roadmap
