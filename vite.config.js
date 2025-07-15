@@ -4,14 +4,14 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  base: '/cofacility-landing/',
+  // 🧼 Remove base since you're deploying to the root
   plugins: [
     vue(),
     tailwindcss(),
   ],
   server: {
     hmr: {
-      path: '/hmr', // Ensures correct WebSocket routing with custom base
+      path: '/hmr',
     },
   },
   resolve: {
